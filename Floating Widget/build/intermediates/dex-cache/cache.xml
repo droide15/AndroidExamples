@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/jorge/Desktop/Floating Widget/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/home/jorge/Desktop/Floating Widget/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_1ab6667fb44570514a6fb0ef7080cbe20f5df30e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jorge/Desktop/Floating Widget/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/jorge/Desktop/Floating Widget/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_4a9e96ae7b4cdb162fdbb7723f724aa9b9fd82f3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jorge/Desktop/Floating Widget/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/home/jorge/Desktop/Floating Widget/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_8ad4202548dd4acffa50016516029fe05a751f5f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jorge/Desktop/Floating Widget/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/home/jorge/Desktop/Floating Widget/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_f1a1c44d19cbcd7d943414475f38ec16e13560f2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jorge/Desktop/Floating Widget/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/jorge/Desktop/Floating Widget/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_d73c383b5582c7723a34639253be7d3343847cac.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jorge/Desktop/Floating Widget/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/home/jorge/Desktop/Floating Widget/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_3e28ac1c86e2f226f47dbb0ce5fb985d96c03e7d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jorge/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/home/jorge/Desktop/Floating Widget/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_785cbd932cb3e13eeae39194cc1c2896f628ed74.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jorge/Desktop/Floating Widget/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/jorge/Desktop/Floating Widget/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_34a0f50cb3f2c64fa674c2ac1558f9854814895f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jorge/Desktop/Floating Widget/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/jorge/Desktop/Floating Widget/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_9837da7e8695813b81321c6d17a7cb1f637de7df.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jorge/Desktop/Floating Widget/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/home/jorge/Desktop/Floating Widget/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_6735bd2a78f93e2f88b085dad1806c22735b9f32.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jorge/Desktop/Floating Widget/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/home/jorge/Desktop/Floating Widget/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_325cb7b269b1a76a53eeced603213cfeb6b7511a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jorge/Desktop/Floating Widget/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/jorge/Desktop/Floating Widget/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_af21dd948e011f2146532aa186502be7d01e1e9c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jorge/Desktop/Floating Widget/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/jorge/Desktop/Floating Widget/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_85c563fd92d3afeaf76aa5dc3a75b31fdf4dca68.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jorge/Desktop/Floating Widget/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/jorge/Desktop/Floating Widget/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_4edc94fc1e80b5cf17d85eec314add04f25624ac.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/jorge/Desktop/Floating Widget/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/home/jorge/Desktop/Floating Widget/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_0a6344e78718e115fd33f7e8d0e6f98eb4b9e8b7.jar" />
+    </item>
+
+</items>
