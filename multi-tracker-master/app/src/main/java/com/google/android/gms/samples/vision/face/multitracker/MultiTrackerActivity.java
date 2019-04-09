@@ -106,7 +106,7 @@ public final class MultiTrackerActivity extends AppCompatActivity implements Gra
 
         // read parameters from the intent used to launch the activity.
         boolean autoFocus = true;
-        boolean useFlash = false;
+        boolean useFlash = true;
 
         // Check for the camera permission before accessing the camera.  If the
         // permission is not granted yet, request permission.
@@ -317,6 +317,7 @@ public final class MultiTrackerActivity extends AppCompatActivity implements Gra
                 //.setRequestedPreviewSize(1600, 1024)
                 .setRequestedPreviewSize(1280, 1024)
                 //.setAutoFocusEnabled(true)
+                .setFlashMode(useFlash ? Camera.Parameters.FLASH_MODE_TORCH : null)
                 .setFocusMode(autoFocus ? Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE : null)
                 //.setRequestedFps(15.0f)
                 .setRequestedFps(2.0f)
@@ -417,7 +418,7 @@ public final class MultiTrackerActivity extends AppCompatActivity implements Gra
             Log.d(TAG, "Camera permission granted - initialize the camera source");
             // we have permission, so create the camerasource
             boolean autoFocus = true;
-            boolean useFlash = false;
+            boolean useFlash = true;
             createCameraSource(autoFocus, useFlash);
             return;
         }
