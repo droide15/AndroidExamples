@@ -25,6 +25,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.graphics.Rect;
 import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
@@ -51,6 +52,8 @@ import com.google.android.gms.vision.MultiProcessor;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 import com.google.android.gms.vision.face.FaceDetector;
+import com.google.android.gms.vision.text.Element;
+import com.google.android.gms.vision.text.Text;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
 
@@ -475,12 +478,12 @@ public final class MultiTrackerActivity extends AppCompatActivity implements Gra
 
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < items.size(); ++i) {
-                TextBlock item = items.valueAt(i);
-
-                //if (item.getValue().startsWith("LOT") || item.getValue().startsWith("EXP")) {
-                    stringBuilder.append(item.getValue() + " at:" + Integer.toString(item.getBoundingBox().top) + "," + Integer.toString(item.getBoundingBox().left) + "|");
-                    //stringBuilder.append("\n");
-                //}
+                TextBlock itemBlock = items.valueAt(i);
+                for (int j = 0; j < itemBlock.getComponents().size(); j++) {
+                    Text itemText = itemBlock.getComponents().get(j);
+                    Rect itemBox = itemText.getBoundingBox();
+                    stringBuilder.append(itemText.getValue() + " at:" + Integer.toString(itemBox.top) + "," + Integer.toString(itemBox.left) + "|");
+                }
             }
 
             TextValue = stringBuilder.toString();
