@@ -477,10 +477,10 @@ public final class MultiTrackerActivity extends AppCompatActivity implements Gra
             for (int i = 0; i < items.size(); ++i) {
                 TextBlock item = items.valueAt(i);
 
-                if (item.getValue().startsWith("LOT") || item.getValue().startsWith("EXP")) {
-                    stringBuilder.append(item.getValue());
+                //if (item.getValue().startsWith("LOT") || item.getValue().startsWith("EXP")) {
+                    stringBuilder.append(item.getValue() + " at:" + Integer.toString(item.getBoundingBox().top) + "," + Integer.toString(item.getBoundingBox().left) + "|");
                     //stringBuilder.append("\n");
-                }
+                //}
             }
 
             TextValue = stringBuilder.toString();
@@ -491,7 +491,7 @@ public final class MultiTrackerActivity extends AppCompatActivity implements Gra
             final SparseArray<Barcode> items = (SparseArray<Barcode>) detectionResults.getDetectedItems();
             Barcode barcode = items.valueAt(0);
             BarcodeValue = barcode.rawValue;
-            Log.d(TAG, "Barcode:" + barcode.rawValue);
+            Log.d(TAG, "Barcode:" + barcode.rawValue + " at:" + Integer.toString(barcode.getBoundingBox().top) + "," + Integer.toString(barcode.getBoundingBox().left));
         }
     }
 
@@ -514,18 +514,20 @@ public final class MultiTrackerActivity extends AppCompatActivity implements Gra
                             vibrator.vibrate(200);
                         }
 
-                        stopThread = true;
-                        mThread.interrupt();
+                        //stopThread = true;
+                        //mThread.interrupt();
 
                         TextValue = TextValue.replaceAll("[\\n]+"," ");
 
-                        Intent intent = new Intent(mContext, SendScannedBarcode.class);
-                        intent.putExtra(BARCODE_MESSAGE, BarcodeValue);
-                        intent.putExtra(OCR_MESSAGE, TextValue);
-                        mContext.startActivity(intent);
+                        //Intent intent = new Intent(mContext, SendScannedBarcode.class);
+                        //intent.putExtra(BARCODE_MESSAGE, BarcodeValue);
+                        //intent.putExtra(OCR_MESSAGE, TextValue);
+                        //mContext.startActivity(intent);
 
                         BarcodeValue = null;
                         TextValue = null;
+
+                        Log.d(TAG, "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
                     }
 
                     Thread.sleep(1000);
