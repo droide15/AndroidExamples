@@ -86,6 +86,8 @@ public final class MultiTrackerActivity extends AppCompatActivity implements Gra
     // Helper objects for detecting taps and pinches.
     private GestureDetector gestureDetector;
     private ScaleGestureDetector scaleGestureDetector;
+    private float tapX;
+    private float tapY;
 
     private volatile static String TextValue;
     private volatile static String BarcodeValue;
@@ -195,6 +197,9 @@ public final class MultiTrackerActivity extends AppCompatActivity implements Gra
      */
     private boolean onTap(float rawX, float rawY) {
         // Find tap point in preview frame coordinates.
+        Log.v(TAG, "X: " + rawX + ", Y: " + rawY);
+        tapX = rawX;
+        tapY = rawY;
         return true;
     }
 
@@ -483,6 +488,11 @@ public final class MultiTrackerActivity extends AppCompatActivity implements Gra
                     Text itemText = itemBlock.getComponents().get(j);
                     Rect itemBox = itemText.getBoundingBox();
                     stringBuilder.append(itemText.getValue() + " at:" + Integer.toString(itemBox.top) + "," + Integer.toString(itemBox.left) + "|");
+                    if (itemBox.top < tapY && itemBox.bottom > tapY && itemBox.left < tapX && itemBox.right > tapX) {
+                        Log.v(TAG, "-------------------------------");
+                        Log.v(TAG, "Text:" + itemText.getValue() + " at:" + Integer.toString(itemBox.top) + "," + Integer.toString(itemBox.left));
+                        Log.v(TAG, "-------------------------------");
+                    }
                 }
             }
 
@@ -494,7 +504,12 @@ public final class MultiTrackerActivity extends AppCompatActivity implements Gra
             final SparseArray<Barcode> items = (SparseArray<Barcode>) detectionResults.getDetectedItems();
             Barcode barcode = items.valueAt(0);
             BarcodeValue = barcode.rawValue;
-            Log.d(TAG, "Barcode:" + barcode.rawValue + " at:" + Integer.toString(barcode.getBoundingBox().top) + "," + Integer.toString(barcode.getBoundingBox().left));
+            Rect itemBox = barcode.getBoundingBox();
+            if (itemBox.top < tapY && itemBox.bottom > tapY && itemBox.left < tapX && itemBox.right > tapX) {
+                Log.v(TAG, "********************************");
+                Log.v(TAG, "Barcode:" + barcode.rawValue + " at:" + Integer.toString(itemBox.top) + "," + Integer.toString(itemBox.left));
+                Log.v(TAG, "********************************");
+            }
         }
     }
 
