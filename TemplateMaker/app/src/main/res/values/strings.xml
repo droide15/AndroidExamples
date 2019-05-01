@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TemplateMaker</string>
+    <string-array name="codetype">
+        <item>C/1D</item>
+        <item>C/2D</item>
+        <item>Text</item>
+        <item>Number</item>
+    </string-array>
+</resources>
