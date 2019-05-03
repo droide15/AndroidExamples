@@ -1,24 +1,15 @@
 package com.example.templatemaker;
 
 public class Movie {
-    private String title, year;
+    private String year;
     private int genre;
 
     public Movie() {
     }
 
-    public Movie(String title, int genre, String year) {
-        this.title = title;
+    public Movie(int genre, String year) {
         this.genre = genre;
         this.year = year;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String name) {
-        this.title = name;
     }
 
     public String getYear() {

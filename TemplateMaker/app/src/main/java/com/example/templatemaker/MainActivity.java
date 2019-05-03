@@ -40,59 +40,58 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void prepareMovieData() {
-        Movie movie = new Movie("Mad Max: Fury Road", 0, "2015");
+        Movie movie = new Movie(0, "2015");
         movieList.add(movie);
 
-        movie = new Movie("Inside Out", 1, "2015");
+        movie = new Movie(1, "2015");
         movieList.add(movie);
 
-        movie = new Movie("Star Wars: Episode VII - The Force Awakens", 2, "2015");
+        movie = new Movie(2, "2015");
         movieList.add(movie);
 
-        movie = new Movie("Shaun the Sheep", 3, "2015");
+        movie = new Movie(3, "2015");
         movieList.add(movie);
 
-        movie = new Movie("The Martian", 0, "2015");
+        movie = new Movie(0, "2015");
         movieList.add(movie);
 
-        movie = new Movie("Mission: Impossible Rogue Nation", 1, "2015");
+        movie = new Movie(1, "2015");
         movieList.add(movie);
 
-        movie = new Movie("Up", 2, "2009");
+        movie = new Movie(2, "2009");
         movieList.add(movie);
 
-        movie = new Movie("Star Trek", 3, "2009");
+        movie = new Movie(3, "2009");
         movieList.add(movie);
 
-        movie = new Movie("The LEGO Movie", 0, "2014");
+        movie = new Movie(0, "2014");
         movieList.add(movie);
 
-        movie = new Movie("Iron Man", 1, "2008");
+        movie = new Movie(1, "2008");
         movieList.add(movie);
 
-        movie = new Movie("Aliens", 2, "1986");
+        movie = new Movie(2, "1986");
         movieList.add(movie);
 
-        movie = new Movie("Chicken Run", 3, "2000");
+        movie = new Movie(3, "2000");
         movieList.add(movie);
 
-        movie = new Movie("Back to the Future", 0, "1985");
+        movie = new Movie(0, "1985");
         movieList.add(movie);
 
-        movie = new Movie("Raiders of the Lost Ark", 1, "1981");
+        movie = new Movie(1, "1981");
         movieList.add(movie);
 
-        movie = new Movie("Goldfinger", 2, "1965");
+        movie = new Movie(2, "1965");
         movieList.add(movie);
 
-        movie = new Movie("Guardians of the Galaxy", 3, "2014");
+        movie = new Movie(3, "2014");
         movieList.add(movie);
 
         mAdapter.notifyDataSetChanged();
     }
 
     //TODO: https://www.androidhive.info/2016/01/android-working-with-recycler-view/
-    //TODO: https://www.mkyong.com/android/android-imageview-example/
     //TODO: https://www.journaldev.com/9383/android-internal-storage-example-tutorial
     //TODO: https://android-arsenal.com/details/1/4083#!package
 }
