@@ -1,7 +1,0 @@
-#Thu Mar 21 21:47:49 PDT 2019
-base.0=/home/jorge/Desktop/AndroidExamples/ocr-reader/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_f9266f63c3b1f80d7bb70d4cb43fb111e4c3b58e
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=/home/jorge/Desktop/AndroidExamples/ocr-reader/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b0aafd907b491ef8059e2c9e98dde9943525a5d0/classes.dex
-base.1=/home/jorge/Desktop/AndroidExamples/ocr-reader/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b0aafd907b491ef8059e2c9e98dde9943525a5d0
-file.0=/home/jorge/Desktop/AndroidExamples/ocr-reader/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_f9266f63c3b1f80d7bb70d4cb43fb111e4c3b58e/classes.dex

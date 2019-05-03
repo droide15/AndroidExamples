@@ -1,4 +1,0 @@
-#Thu Mar 21 21:47:49 PDT 2019
-base.0=/home/jorge/Desktop/AndroidExamples/ocr-reader/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0
-renamed.0=classes.dex
-file.0=/home/jorge/Desktop/AndroidExamples/ocr-reader/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex
