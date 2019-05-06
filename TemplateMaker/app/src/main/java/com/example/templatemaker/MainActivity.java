@@ -4,17 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -22,9 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private List<Movie> movieList = new ArrayList<>();
+    private List<CaptureField> captureFieldList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private MoviesAdapter mAdapter;
+    private CaptureFieldAdapter mAdapter;
+    private int currentPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,30 +28,41 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
-        mAdapter = new MoviesAdapter(movieList);
+        mAdapter = new CaptureFieldAdapter(captureFieldList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                currentPosition = position;
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+            }
+        }));
+
         prepareMovieData();
     }
 
     private void prepareMovieData() {
-        /*Movie movie = new Movie(0, "2014");
-        movieList.add(movie);
+        CaptureField captureField = new CaptureField(3, "2014");
+        captureFieldList.add(captureField);
 
-        movie = new Movie(1, "2008");
-        movieList.add(movie);
+        captureField = new CaptureField(2, "2008");
+        captureFieldList.add(captureField);
 
-        movie = new Movie(2, "1986");
-        movieList.add(movie);
+        captureField = new CaptureField(1, "1986");
+        captureFieldList.add(captureField);
 
-        movie = new Movie(3, "2000");
-        movieList.add(movie);*/
+        captureField = new CaptureField(0, "2000");
+        captureFieldList.add(captureField);
 
         try {
-            FileInputStream fin = openFileInput("file name");
+            FileInputStream fin = openFileInput("template.txt");
 
             int c;
             String temp="";
@@ -65,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     temp = temp + Character.toString((char)c);
                 } else {
                     String[] fields = temp.split(",");
-                    movieList.add(new Movie(Integer.parseInt(fields[0]), fields[1]));
+                    captureFieldList.add(new CaptureField(Integer.parseInt(fields[0]), fields[1]));
                     temp="";
                 }
             }
@@ -78,12 +84,17 @@ public class MainActivity extends AppCompatActivity {
         mAdapter.notifyDataSetChanged();
     }
 
-    public void onClick(View view) {
-        try {
-            FileOutputStream fOut = openFileOutput("file name",Context.MODE_PRIVATE);
+    public void remove(View view) {
+        captureFieldList.remove(currentPosition);
+        mAdapter.notifyItemRemoved(currentPosition);
+    }
 
-            for (Movie movie: movieList) {
-                String str = movie.getGenre() + "," + movie.getYear() + "\n";
+    public void save(View view) {
+        try {
+            FileOutputStream fOut = openFileOutput("template.txt",Context.MODE_PRIVATE);
+
+            for (CaptureField captureField : captureFieldList) {
+                String str = captureField.getCodeType() + "," + captureField.getYear() + "\n";
                 fOut.write(str.getBytes());
             }
             fOut.close();

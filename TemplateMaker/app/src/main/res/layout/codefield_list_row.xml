@@ -12,24 +12,25 @@
     android:paddingTop="10dp">
 
     <ImageView
-        android:id="@+id/representation"
+        android:id="@+id/codePicture"
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:src="@drawable/c1d" />
+        android:layout_alignParentLeft="true" />
 
     <Spinner
-        android:id="@+id/genre"
+        android:id="@+id/codeType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:entries="@array/codetype"
-        android:layout_toRightOf="@id/representation" />
+        android:layout_toRightOf="@id/codePicture" />
 
-    <TextView
+    <Button
         android:id="@+id/year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/genre" />
+        android:layout_toRightOf="@id/codeType"
+        android:background="@android:drawable/ic_delete"
+        android:onClick="remove"/>
 
 </RelativeLayout>
