@@ -9,6 +9,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -18,9 +22,26 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private List<CaptureField> captureFieldList = new ArrayList<>();
+    private AdapterView.OnItemSelectedListener onItemSelectedListener = new AdapterView.OnItemSelectedListener(){
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            ViewParent parentView = parent.getParent();
+            RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) ((ViewGroup) parentView).getTag();
+
+            CaptureField temp = captureFieldList.get(viewHolder.getAdapterPosition());
+            temp.setCodeType(position);
+
+            mAdapter.notifyItemChanged(viewHolder.getAdapterPosition());
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    };
+
     private RecyclerView recyclerView;
     private CaptureFieldAdapter mAdapter;
-    private int currentPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,27 +54,15 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        mAdapter.setOnItemSelectedListener(onItemSelectedListener);
+
         recyclerView.setAdapter(mAdapter);
-
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-                currentPosition = position;
-                mAdapter.setCurrentPosition(position);
-            }
-
-            @Override
-            public void onLongClick(View view, int position) {
-            }
-        }));
 
         prepareMovieData();
     }
 
     private void prepareMovieData() {
-        currentPosition = -1;
-        mAdapter.setCurrentPosition(-1);
-
         try {
             FileInputStream fin = openFileInput("template.txt");
 
@@ -78,9 +87,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void add(View view) {
-        currentPosition = -1;
-        mAdapter.setCurrentPosition(-1);
-
         CaptureField captureField = new CaptureField(0);
         captureFieldList.add(captureField);
 
@@ -88,22 +94,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void up(View view) {
-        if (currentPosition > 0) {
-            Collections.swap(captureFieldList, currentPosition, currentPosition - 1);
-            mAdapter.notifyItemMoved(currentPosition, currentPosition - 1);
+        ViewParent parentView = view.getParent();
+        RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) ((ViewGroup) parentView).getTag();
+        int position = viewHolder.getAdapterPosition();
+
+        if (position > 0) {
+            Collections.swap(captureFieldList, position, position - 1);
+            mAdapter.notifyItemMoved(position, position - 1);
         }
     }
 
     public void down(View view) {
-        if (currentPosition < captureFieldList.size() - 1) {
-            Collections.swap(captureFieldList, currentPosition, currentPosition + 1);
-            mAdapter.notifyItemMoved(currentPosition, currentPosition + 1);
+        ViewParent parentView = view.getParent();
+        RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) ((ViewGroup) parentView).getTag();
+        int position = viewHolder.getAdapterPosition();
+
+        if (position < captureFieldList.size() - 1) {
+            Collections.swap(captureFieldList, position, position + 1);
+            mAdapter.notifyItemMoved(position, position + 1);
         }
     }
 
     public void remove(View view) {
-        captureFieldList.remove(currentPosition);
-        mAdapter.notifyItemRemoved(currentPosition);
+        ViewParent parentView = view.getParent();
+        RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) ((ViewGroup) parentView).getTag();
+        int position = viewHolder.getAdapterPosition();
+
+        captureFieldList.remove(position);
+        mAdapter.notifyItemRemoved(position);
     }
 
     public void save(View view) {
