@@ -17,17 +17,16 @@ import java.util.List;
 public class CaptureFieldAdapter extends RecyclerView.Adapter<CaptureFieldAdapter.MyViewHolder>{
 
     private List<CaptureField> captureFieldList;
+    private int currentPosition;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public ImageView codePicture;
-        public TextView year;
         public Spinner codeType;
 
         public MyViewHolder(View view) {
             super(view);
             codePicture = (ImageView) view.findViewById(R.id.codePicture);
             codeType = (Spinner) view.findViewById(R.id.codeType);
-            year = (Button) view.findViewById(R.id.year);
         }
     }
 
@@ -62,30 +61,32 @@ public class CaptureFieldAdapter extends RecyclerView.Adapter<CaptureFieldAdapte
                 break;
         }
         holder.codeType.setSelection(captureField.getCodeType());
-        holder.year.setText(captureField.getYear());
 
         holder.codeType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ViewParent parentView = parent.getParent();
-                ImageView codePicture = (ImageView) ((ViewGroup) parentView).findViewById(R.id.codePicture);
+                if (currentPosition > -1) {
+                    ViewParent parentView = parent.getParent();
+                    ImageView codePicture = (ImageView) ((ViewGroup) parentView).findViewById(R.id.codePicture);
 
-                switch (position) {
-                    case 0:
-                        codePicture.setImageResource(R.drawable.c1d);
-                        break;
-                    case 1:
-                        codePicture.setImageResource(R.drawable.c2d);
-                        break;
-                    case 2:
-                        codePicture.setImageResource(R.drawable.text);
-                        break;
-                    case 3:
-                        codePicture.setImageResource(R.drawable.number);
-                        break;
+                    switch (position) {
+                        case 0:
+                            codePicture.setImageResource(R.drawable.c1d);
+                            break;
+                        case 1:
+                            codePicture.setImageResource(R.drawable.c2d);
+                            break;
+                        case 2:
+                            codePicture.setImageResource(R.drawable.text);
+                            break;
+                        case 3:
+                            codePicture.setImageResource(R.drawable.number);
+                            break;
+                    }
+
+                    CaptureField temp = captureFieldList.get(currentPosition);
+                    temp.setCodeType(position);
                 }
-
-                updateItems((RecyclerView) parentView.getParent());
             }
 
             @Override
@@ -100,11 +101,7 @@ public class CaptureFieldAdapter extends RecyclerView.Adapter<CaptureFieldAdapte
         return captureFieldList.size();
     }
 
-    public void updateItems(RecyclerView recyclerView) {
-        for (int i = 0; i < recyclerView.getChildCount(); i++) {
-            MyViewHolder holder = (MyViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
-
-            captureFieldList.get(i).setCodeType(holder.codeType.getSelectedItemPosition());
-        }
+    public void setCurrentPosition(int position) {
+        currentPosition = position;
     }
 }

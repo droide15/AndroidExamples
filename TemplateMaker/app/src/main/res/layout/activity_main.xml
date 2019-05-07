@@ -7,17 +7,29 @@
     tools:showIn="@layout/activity_main"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/add"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="add"
+        android:text="add" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
+        android:layout_alignParentLeft="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/save"
+        android:layout_below="@+id/add"
+        android:layout_above="@id/save"
         android:scrollbars="vertical" />
 
     <Button
         android:id="@+id/save"
         android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="save"
         android:text="save" />

@@ -13,6 +13,7 @@ import android.view.View;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 currentPosition = position;
+                mAdapter.setCurrentPosition(position);
             }
 
             @Override
@@ -49,17 +51,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void prepareMovieData() {
-        CaptureField captureField = new CaptureField(3, "2014");
-        captureFieldList.add(captureField);
-
-        captureField = new CaptureField(2, "2008");
-        captureFieldList.add(captureField);
-
-        captureField = new CaptureField(1, "1986");
-        captureFieldList.add(captureField);
-
-        captureField = new CaptureField(0, "2000");
-        captureFieldList.add(captureField);
+        currentPosition = -1;
+        mAdapter.setCurrentPosition(-1);
 
         try {
             FileInputStream fin = openFileInput("template.txt");
@@ -71,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     temp = temp + Character.toString((char)c);
                 } else {
                     String[] fields = temp.split(",");
-                    captureFieldList.add(new CaptureField(Integer.parseInt(fields[0]), fields[1]));
+                    captureFieldList.add(new CaptureField(Integer.parseInt(fields[0])));
                     temp="";
                 }
             }
@@ -84,6 +77,30 @@ public class MainActivity extends AppCompatActivity {
         mAdapter.notifyDataSetChanged();
     }
 
+    public void add(View view) {
+        currentPosition = -1;
+        mAdapter.setCurrentPosition(-1);
+
+        CaptureField captureField = new CaptureField(0);
+        captureFieldList.add(captureField);
+
+        mAdapter.notifyDataSetChanged();
+    }
+
+    public void up(View view) {
+        if (currentPosition > 0) {
+            Collections.swap(captureFieldList, currentPosition, currentPosition - 1);
+            mAdapter.notifyItemMoved(currentPosition, currentPosition - 1);
+        }
+    }
+
+    public void down(View view) {
+        if (currentPosition < captureFieldList.size() - 1) {
+            Collections.swap(captureFieldList, currentPosition, currentPosition + 1);
+            mAdapter.notifyItemMoved(currentPosition, currentPosition + 1);
+        }
+    }
+
     public void remove(View view) {
         captureFieldList.remove(currentPosition);
         mAdapter.notifyItemRemoved(currentPosition);
@@ -94,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             FileOutputStream fOut = openFileOutput("template.txt",Context.MODE_PRIVATE);
 
             for (CaptureField captureField : captureFieldList) {
-                String str = captureField.getCodeType() + "," + captureField.getYear() + "\n";
+                String str = captureField.getCodeType() + "\n";
                 fOut.write(str.getBytes());
             }
             fOut.close();

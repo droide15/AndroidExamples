@@ -6,30 +6,46 @@
     android:clickable="true"
     android:focusable="true"
     android:orientation="vertical"
-    android:paddingBottom="10dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="10dp">
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp">
 
     <ImageView
         android:id="@+id/codePicture"
-        android:layout_width="150dp"
-        android:layout_height="30dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true" />
 
     <Spinner
         android:id="@+id/codeType"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:entries="@array/codetype"
         android:layout_toRightOf="@id/codePicture" />
 
     <Button
-        android:id="@+id/year"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/up"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_toRightOf="@id/codeType"
+        android:text="/\\"
+        android:onClick="up"/>
+
+    <Button
+        android:id="@+id/down"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_toRightOf="@id/up"
+        android:text="\\/"
+        android:onClick="down"/>
+
+    <Button
+        android:id="@+id/remove"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_toRightOf="@id/down"
         android:background="@android:drawable/ic_delete"
         android:onClick="remove"/>
 
