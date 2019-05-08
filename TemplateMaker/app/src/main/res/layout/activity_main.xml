@@ -16,6 +16,25 @@
         android:onClick="add"
         android:text="add" />
 
+    <Button
+        android:id="@+id/reload"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/add"
+        android:layout_toLeftOf="@id/clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="reload"
+        android:text="reload" />
+
+    <Button
+        android:id="@+id/clear"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clear"
+        android:text="clear" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_alignParentLeft="true"
@@ -33,4 +52,23 @@
         android:layout_height="wrap_content"
         android:onClick="save"
         android:text="save" />
+
+    <Button
+        android:id="@+id/proceed"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/save"
+        android:layout_toLeftOf="@id/close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="proceed"
+        android:text="proceed" />
+
+    <Button
+        android:id="@+id/close"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="close"
+        android:text="close" />
 </RelativeLayout>

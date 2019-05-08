@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -86,13 +87,6 @@ public class MainActivity extends AppCompatActivity {
         mAdapter.notifyDataSetChanged();
     }
 
-    public void add(View view) {
-        CaptureField captureField = new CaptureField(0);
-        captureFieldList.add(captureField);
-
-        mAdapter.notifyDataSetChanged();
-    }
-
     public void up(View view) {
         ViewParent parentView = view.getParent();
         RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) ((ViewGroup) parentView).getTag();
@@ -124,6 +118,24 @@ public class MainActivity extends AppCompatActivity {
         mAdapter.notifyItemRemoved(position);
     }
 
+    public void add(View view) {
+        CaptureField captureField = new CaptureField(0);
+        captureFieldList.add(captureField);
+
+        mAdapter.notifyDataSetChanged();
+    }
+
+    public void reload(View view) {
+        captureFieldList.clear();
+        prepareMovieData();
+    }
+
+    public void clear(View view) {
+        captureFieldList.clear();
+
+        mAdapter.notifyDataSetChanged();
+    }
+
     public void save(View view) {
         try {
             FileOutputStream fOut = openFileOutput("template.txt",Context.MODE_PRIVATE);
@@ -136,6 +148,14 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             Log.e("MaintActivity", e.toString());
         }
+    }
+
+    public void proceed(View view) {
+        Toast.makeText(getApplicationContext(), "this is a demo", Toast.LENGTH_LONG).show();
+    }
+
+    public void close(View view) {
+        finish();
     }
 
     //TODO: https://www.androidhive.info/2016/01/android-working-with-recycler-view/
