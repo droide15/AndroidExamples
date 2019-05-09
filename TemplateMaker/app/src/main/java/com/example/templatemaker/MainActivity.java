@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String TAG = MainActivity.class.getSimpleName();
     private List<CaptureField> captureFieldList = new ArrayList<>();
     private AdapterView.OnItemSelectedListener onItemSelectedListener = new AdapterView.OnItemSelectedListener(){
         @Override
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
             fin.close();
         } catch (Exception e) {
-            Log.e("MaintActivity", e.toString());
+            Log.e(TAG, e.toString());
         }
 
         mAdapter.notifyDataSetChanged();
@@ -146,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
             }
             fOut.close();
         } catch (Exception e) {
-            Log.e("MaintActivity", e.toString());
+            Log.e(TAG, e.toString());
         }
     }
 
@@ -157,7 +158,4 @@ public class MainActivity extends AppCompatActivity {
     public void close(View view) {
         finish();
     }
-
-    //TODO: https://www.androidhive.info/2016/01/android-working-with-recycler-view/
-    //TODO: https://android-arsenal.com/details/1/4083#!package
 }
