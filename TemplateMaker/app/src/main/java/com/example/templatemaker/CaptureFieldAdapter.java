@@ -1,16 +1,12 @@
 package com.example.templatemaker;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -43,7 +39,7 @@ public class CaptureFieldAdapter extends RecyclerView.Adapter<CaptureFieldAdapte
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.codefield_list_row, parent, false);
+                .inflate(R.layout.capturefield_list_row, parent, false);
 
         return new MyViewHolder(itemView);
     }

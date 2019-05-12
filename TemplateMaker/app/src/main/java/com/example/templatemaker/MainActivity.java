@@ -1,5 +1,6 @@
 package com.example.templatemaker;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -12,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.AdapterView;
-import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.FileInputStream;
@@ -151,8 +152,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void proceed(View view) {
-        Toast.makeText(getApplicationContext(), "this is a demo", Toast.LENGTH_LONG).show();
+    public void captureData(View view) {
+        ArrayList<Integer> capturePreviewList = new ArrayList<>();
+
+        for (CaptureField captureField: captureFieldList) {
+            capturePreviewList.add(captureField.getCodeType());
+        }
+
+        Intent intent = new Intent(MainActivity.this, PreviewActivity.class);
+        intent.putExtra("capturePreviewList", capturePreviewList);
+        MainActivity.this.startActivity(intent);
+
+        Toast.makeText(getApplicationContext(), "this is a preview", Toast.LENGTH_LONG).show();
     }
 
     public void close(View view) {

@@ -39,7 +39,7 @@
         android:id="@+id/recycler_view"
         android:layout_alignParentLeft="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/add"
         android:layout_above="@id/save"
         android:scrollbars="vertical" />
@@ -54,14 +54,14 @@
         android:text="save" />
 
     <Button
-        android:id="@+id/proceed"
+        android:id="@+id/captureData"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@id/save"
         android:layout_toLeftOf="@id/close"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="proceed"
-        android:text="proceed" />
+        android:onClick="captureData"
+        android:text="Capture Data" />
 
     <Button
         android:id="@+id/close"
