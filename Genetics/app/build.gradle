@@ -27,4 +27,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation 'org.uncommons.watchmaker:watchmaker-framework:0.7.1'
+    implementation 'info.debatty:java-string-similarity:1.2.1'
 }

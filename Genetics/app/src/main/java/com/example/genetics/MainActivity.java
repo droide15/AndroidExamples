@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        String result = engine.evolve(100, 25, new TargetFitness(11,true));
+        String result = engine.evolve(500, 100, new TargetFitness(1,true));
 
         textView.setText(result);
     }
