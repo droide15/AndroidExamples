@@ -8,13 +8,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CapturePreviewAdapter extends BaseAdapter {
 
     private final Activity context;
-    private final ArrayList<Integer> capturePreviewList;
+    private final List<Integer> capturePreviewList;
 
-    public CapturePreviewAdapter(Activity context, ArrayList<Integer> capturePreviewList) {
+    public CapturePreviewAdapter(Activity context, List<Integer> capturePreviewList) {
         this.context = context;
         this.capturePreviewList = capturePreviewList;
     }
