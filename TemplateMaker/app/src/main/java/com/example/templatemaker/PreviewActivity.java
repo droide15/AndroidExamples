@@ -24,14 +24,14 @@ public class PreviewActivity extends AppCompatActivity {
     public static final String TAG = PreviewActivity.class.getSimpleName();
     private CapturePreviewAdapter pAdapter;
     private ListView listView;
-    private ArrayList<Integer> capturePreviewList;
+    private List<Integer> capturePreviewList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preview);
 
-        capturePreviewList = (ArrayList<Integer>) getIntent().getSerializableExtra("capturePreviewList");
+        capturePreviewList = (List<Integer>) getIntent().getSerializableExtra("capturePreviewList");
 
         pAdapter = new CapturePreviewAdapter(this, capturePreviewList);
         listView = (ListView)findViewById(R.id.list_view);
