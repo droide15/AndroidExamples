@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.FileInputStream;
@@ -62,10 +61,10 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(mAdapter);
 
-        prepareMovieData();
+        prepareTemplateData();
     }
 
-    private void prepareMovieData() {
+    private void prepareTemplateData() {
         try {
             FileInputStream fin = openFileInput("template.txt");
 
@@ -129,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void reload(View view) {
         captureFieldList.clear();
-        prepareMovieData();
+        prepareTemplateData();
     }
 
     public void clear(View view) {
