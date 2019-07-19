@@ -30,9 +30,6 @@ public class MainActivity extends AppCompatActivity {
             ViewParent parentView = parent.getParent();
             RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) ((ViewGroup) parentView).getTag();
 
-            CaptureField temp = captureFieldList.get(viewHolder.getAdapterPosition());
-            temp.setCodeType(position);
-
             mAdapter.notifyItemChanged(viewHolder.getAdapterPosition());
         }
 
