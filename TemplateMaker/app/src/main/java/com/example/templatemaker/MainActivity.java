@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) ((ViewGroup) parentView).getTag();
         int position = viewHolder.getAdapterPosition();
 
-        if (position > 0) {
+        if (position != RecyclerView.NO_POSITION && position > 0) {
             Collections.swap(captureFieldList, position, position - 1);
             mAdapter.notifyItemMoved(position, position - 1);
         }
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) ((ViewGroup) parentView).getTag();
         int position = viewHolder.getAdapterPosition();
 
-        if (position < captureFieldList.size() - 1) {
+        if (position != RecyclerView.NO_POSITION && position < captureFieldList.size() - 1) {
             Collections.swap(captureFieldList, position, position + 1);
             mAdapter.notifyItemMoved(position, position + 1);
         }
@@ -115,8 +115,10 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) ((ViewGroup) parentView).getTag();
         int position = viewHolder.getAdapterPosition();
 
-        captureFieldList.remove(position);
-        mAdapter.notifyItemRemoved(position);
+        if(position != RecyclerView.NO_POSITION) {
+            captureFieldList.remove(position);
+            mAdapter.notifyItemRemoved(position);
+        }
     }
 
     public void add(View view) {
