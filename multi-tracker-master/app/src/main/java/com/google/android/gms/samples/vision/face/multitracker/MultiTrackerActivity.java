@@ -522,7 +522,10 @@ public final class MultiTrackerActivity extends AppCompatActivity implements Gra
             while (!stopThread && !isInterrupted()) {
                 try {
 
-                    if((BarcodeValue != null && TextValue != null) && (BarcodeValue != "" && TextValue != "")) {
+                    if((BarcodeValue != null && TextValue != null) && (!BarcodeValue.isEmpty() && !TextValue.isEmpty())) {
+
+                        //stopThread = true;
+                        //mThread.interrupt();
 
                         //Vibrate
                         Vibrator vibrator = (Vibrator) mContext.getSystemService(VIBRATOR_SERVICE);
@@ -531,16 +534,6 @@ public final class MultiTrackerActivity extends AppCompatActivity implements Gra
                         } else {
                             vibrator.vibrate(200);
                         }
-
-                        //stopThread = true;
-                        //mThread.interrupt();
-
-                        TextValue = TextValue.replaceAll("[\\n]+"," ");
-
-                        //Intent intent = new Intent(mContext, SendScannedBarcode.class);
-                        //intent.putExtra(BARCODE_MESSAGE, BarcodeValue);
-                        //intent.putExtra(OCR_MESSAGE, TextValue);
-                        //mContext.startActivity(intent);
 
                         BarcodeValue = null;
                         TextValue = null;

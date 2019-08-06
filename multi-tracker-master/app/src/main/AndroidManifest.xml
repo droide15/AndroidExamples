@@ -40,16 +40,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".SendScannedBarcode"
-            android:label="@string/title_activity_send_scanned_barcode"
-            android:parentActivityName=".MultiTrackerActivity"
-            android:theme="@style/MaterialTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MultiTrackerActivity" />
-        </activity>
-
     </application>
 
 </manifest>
