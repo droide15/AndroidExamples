@@ -1,4 +1,4 @@
-package com.example.templatemaker;
+package com.xfusion.templatemakerx;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CapturePreviewAdapter extends BaseAdapter {

@@ -1,4 +1,4 @@
-package com.example.templatemaker;
+package com.xfusion.templatemakerx;
 
 public class CaptureField {
     private int codeType;

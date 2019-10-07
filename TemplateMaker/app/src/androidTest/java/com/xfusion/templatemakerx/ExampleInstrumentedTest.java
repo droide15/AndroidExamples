@@ -1,4 +1,4 @@
-package com.example.templatemaker;
+package com.xfusion.templatemakerx;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

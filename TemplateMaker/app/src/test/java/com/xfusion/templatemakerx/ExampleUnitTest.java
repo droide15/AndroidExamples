@@ -1,4 +1,4 @@
-package com.example.templatemaker;
+package com.xfusion.templatemakerx;
 
 import org.junit.Test;
 
