@@ -147,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
                 fOut.write(str.getBytes());
             }
             fOut.close();
+            Toast.makeText(getApplicationContext(), "saved", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }

@@ -3,9 +3,6 @@ package com.xfusion.templatemakerx;
 public class CaptureField {
     private int codeType;
 
-    public CaptureField() {
-    }
-
     public CaptureField(int codeType) {
         this.codeType = codeType;
     }
