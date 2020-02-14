@@ -49,4 +49,12 @@
         android:background="@android:drawable/ic_delete"
         android:onClick="remove"/>
 
+    <ImageView
+        android:id="@+id/answers"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:visibility="gone"
+        android:background="@android:drawable/ic_input_add"
+        android:layout_below="@+id/codePicture" />
+
 </RelativeLayout>

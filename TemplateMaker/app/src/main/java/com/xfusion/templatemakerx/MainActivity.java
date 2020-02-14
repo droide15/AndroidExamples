@@ -40,6 +40,19 @@ public class MainActivity extends AppCompatActivity {
 
         }
     };
+    private AdapterView.OnClickListener onClickListener = new AdapterView.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+            RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) ((ViewGroup) view.getParent()).getTag();
+
+            int captureFieldIndex = viewHolder.getAdapterPosition();
+            CaptureField captureField = captureFieldList.get(captureFieldIndex);
+
+            captureField.setAnswering(!captureField.isAnswering());
+
+            mAdapter.notifyItemChanged(captureFieldIndex);
+        }
+    };
 
     private RecyclerView recyclerView;
     private CaptureFieldAdapter mAdapter;
@@ -57,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         mAdapter.setOnItemSelectedListener(onItemSelectedListener);
+        mAdapter.setOnClickListener(onClickListener);
 
         recyclerView.setAdapter(mAdapter);
 

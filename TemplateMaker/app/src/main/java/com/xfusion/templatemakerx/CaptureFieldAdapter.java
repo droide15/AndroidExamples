@@ -14,19 +14,26 @@ public class CaptureFieldAdapter extends RecyclerView.Adapter<CaptureFieldAdapte
 
     private List<CaptureField> captureFieldList;
     private AdapterView.OnItemSelectedListener onItemSelectedListener;
+    private AdapterView.OnClickListener onClickListener;
 
     public void setOnItemSelectedListener(AdapterView.OnItemSelectedListener onItemSelectedListener) {
         this.onItemSelectedListener = onItemSelectedListener;
     }
 
+    public void setOnClickListener(AdapterView.OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public ImageView codePicture;
         public Spinner codeType;
+        public ImageView answers;
 
         public MyViewHolder(View view) {
             super(view);
             codePicture = (ImageView) view.findViewById(R.id.codePicture);
             codeType = (Spinner) view.findViewById(R.id.codeType);
+            answers = (ImageView) view.findViewById(R.id.answers);
 
             view.setTag(this);
         }
@@ -63,8 +70,14 @@ public class CaptureFieldAdapter extends RecyclerView.Adapter<CaptureFieldAdapte
                 break;
         }
         holder.codeType.setSelection(captureField.getCodeType());
+        if (captureField.isAnswering()) {
+            holder.answers.setVisibility(View.VISIBLE);
+        } else {
+            holder.answers.setVisibility(View.GONE);
+        }
 
         holder.codeType.setOnItemSelectedListener(onItemSelectedListener);
+        holder.codePicture.setOnClickListener(onClickListener);
     }
 
     @Override
